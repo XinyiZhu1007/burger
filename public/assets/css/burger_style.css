@@ -1,0 +1,89 @@
+body{
+    font-family: 'Inconsolata', monospace;
+    background: url("../img/burger_bg.jpg");
+    color: brown;
+}
+
+#title{
+    text-align: center;
+}
+
+div a{
+    background-color: brown;
+    color:yellow;
+    padding: 1%;
+}
+
+#add-new-form{
+    display: flex;
+    flex-direction: row;
+}
+
+#new-item {
+    color: brown; 
+    flex-grow: 1.5;
+    border: 1px solid brown;
+    margin: 0 3% 0 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-left: 3%;
+    text-align: center;
+}
+
+#new-item:focus{
+    color: brown; 
+    flex-grow: 1.5;
+    border: 2.5px solid brown;
+    margin: 0 3% 0 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding-left: 3%;
+    text-align: center;
+    outline: none;
+}
+
+#new-item::placeholder{
+    color: rgba(165, 42, 42, 0.5);
+}
+
+#content{
+    display: flex;
+    flex-direction: row;
+}
+
+.column{
+    width: 40%;
+    margin-top: 3%;
+    margin-left: 5%;
+    color: brown; 
+}
+
+.column-content{
+    background: rgba(238, 216, 138, 0.452);
+    padding: 2%;
+}
+
+#non-devoured-burger{
+    border-right: brown dotted 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+#item{
+    display: flex;
+    flex-direction: row;
+}
+
+#burger-info{
+    flex-grow: 1.5;
+}
+
+
+form{
+    padding: 4%;
+    flex-grow: 1;
+    /* margin-top: auto;   */
+}
+
+form button:focus{
+    background-color: brown;
+    color:blanchedalmond;
+}

@@ -1,0 +1,71 @@
+<div>
+    <a class="right" href="https://github.com/XinyiZhu1007/burger">Source code</a>
+</div>
+
+<div>
+    <h2 id="title">Eat-da-Burger!</h2>
+</div>
+
+<div class="row">
+    <form id="add-new-form">
+        <input id="new-item" type="text" placeholder="What Burger Are You Gonna Eat?">
+        <button type="submit" id="addNewBtn">Add a New Burger!</button>
+    </form>
+</div>
+
+<div class="row" id="content">
+    {{! burgers to be eaten}}
+
+    <div class="column" >
+        <h4> Ready to Eat </h4><br>
+        <div class="column-content" id="non-devoured-burger">
+          {{#if newBurger}}
+            {{#each newBurger}}
+            <div id="item">
+                <p id='burger-info'> {{this.id}} {{this.burger_name}} </p>
+                <form action="update/{{this.id}}?_method=PUT" method="POST">
+                    <button type="submit" id="devour-btn">DEVOUR IT!</button>
+                </form>
+            </div>
+            {{/each}}
+            {{else}}
+            <p>No New Burgers Yet.</p>
+          {{/if}}
+
+        </div>
+    </div>
+        
+    {{!-- burgers already been eaten --}}
+    <div class="column" id="devoured-burger">
+        <h4> What People Ate </h4><br>
+        <div class="column-content" id="devoured-burger">
+            {{#if eatenBurger}}
+                {{#each eatenBurger}}
+                    <p> {{this.id}} {{this.burger_name}} </p>
+                {{/each}}
+                {{else}}
+                <p>No Burgers Eaten Yet.</p>
+            {{/if}}
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('body').on('click', "#addNewBtn", function() {
+        var inputVal = $('#new-item').val();
+        console.log(inputVal);
+        $.ajax({
+            method: "POST",
+            url: "/create",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify({
+                name: inputVal
+            })
+        })
+    })
+</script>
